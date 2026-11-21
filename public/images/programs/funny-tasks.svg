@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 400" width="640" height="400" role="img">
+<defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fff4e8"/><stop offset="1" stop-color="#ffffff"/></linearGradient></defs>
+<rect width="640" height="400" fill="url(#bg)"/>
+<circle cx="560" cy="70" r="90" fill="#ffe2c4" opacity=".55"/>
+<circle cx="70" cy="350" r="110" fill="#ffe2c4" opacity=".45"/>
+<circle cx="120" cy="70" r="8" fill="#f28c28" opacity=".7"/><circle cx="590" cy="330" r="10" fill="#1f7ac4" opacity=".35"/>
+<circle cx="520" cy="210" r="5" fill="#f28c28" opacity=".6"/><circle cx="90" cy="200" r="6" fill="#1f7ac4" opacity=".3"/>
+<circle cx="300" cy="200" r="120" fill="#ffd3a6" stroke="#17242f" stroke-width="6"/>
+<path d="M240 170 q15 -18 30 0" fill="none" stroke="#17242f" stroke-width="7" stroke-linecap="round"/>
+<path d="M330 170 q15 -18 30 0" fill="none" stroke="#17242f" stroke-width="7" stroke-linecap="round"/>
+<path d="M235 220 h130 a65 60 0 0 1 -130 0z" fill="#ffffff" stroke="#17242f" stroke-width="6" stroke-linejoin="round"/>
+<circle cx="225" cy="215" r="14" fill="#f28c28" opacity=".45"/><circle cx="375" cy="215" r="14" fill="#f28c28" opacity=".45"/><polygon points="470.0,60.0 462.1,79.1 441.5,80.7 457.2,94.2 452.4,114.3 470.0,103.5 487.6,114.3 482.8,94.2 498.5,80.7 477.9,79.1" fill="#1f7ac4" stroke="#17242f" stroke-width="4" stroke-linejoin="round"/><polygon points="130.0,98.0 124.2,112.0 109.1,113.2 120.6,123.1 117.1,137.8 130.0,129.9 142.9,137.8 139.4,123.1 150.9,113.2 135.8,112.0" fill="#f28c28" stroke="#17242f" stroke-width="4" stroke-linejoin="round"/><polygon points="150.0,282.0 145.2,293.4 132.9,294.4 142.3,302.5 139.4,314.6 150.0,308.1 160.6,314.6 157.7,302.5 167.1,294.4 154.8,293.4" fill="#1f7ac4" stroke="#17242f" stroke-width="4" stroke-linejoin="round"/><g transform="rotate(10 495.0 240.0)"><rect x="450" y="180" width="90" height="120" rx="14" fill="#ffffff" stroke="#17242f" stroke-width="4"/><text x="495" y="268" font-family="Arial" font-weight="700" font-size="76" fill="#f28c28" text-anchor="middle">!</text></g>
+</svg>

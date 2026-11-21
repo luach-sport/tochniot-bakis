@@ -1,0 +1,681 @@
+/* עיצוב דפי ההדפסה. שחור-לבן, חוסך דיו, A4.
+   המידות חייבות להתאים ל-PAGE ב-paginate.ts */
+
+.print-doc {
+  --ink: #111;
+  --ink-soft: #444;
+  --ink-faint: #777;
+  --line: #9a9a9a;
+  --fill: #f2f2f2;
+  font-family: 'Heebo Variable', 'Heebo', Arial, sans-serif;
+  color: var(--ink);
+  direction: rtl;
+  font-size: 10.5pt;
+  line-height: 1.5;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+.print-doc .sheet {
+  box-sizing: border-box;
+  width: 210mm;
+  height: 297mm;
+  padding: 12mm;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  position: relative;
+  page-break-after: always;
+  break-after: page;
+}
+.print-doc .sheet:last-child {
+  page-break-after: auto;
+  break-after: auto;
+}
+
+.print-doc .sheet-header {
+  height: 9mm;
+  flex: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  font-size: 8.5pt;
+  color: var(--ink-faint);
+  border-bottom: 0.3mm solid #ccc;
+  margin-bottom: 0;
+}
+.print-doc .sheet-brand {
+  font-family: 'Rubik', 'Heebo Variable', sans-serif;
+  font-weight: 700;
+  color: var(--ink-soft);
+}
+.print-doc .sheet-body {
+  flex: 1 1 auto;
+  height: 256mm;
+  max-height: 256mm;
+  overflow: hidden;
+  padding-top: 3mm;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+}
+.print-doc .sheet-footer {
+  height: 8mm;
+  flex: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  font-size: 8.5pt;
+  color: var(--ink-faint);
+  border-top: 0.3mm solid #ccc;
+}
+.print-doc .sheet-footer span:first-child {
+  direction: ltr;
+}
+.print-doc .sheet-page {
+  font-weight: 600;
+  color: var(--ink-soft);
+}
+
+.print-doc h1,
+.print-doc h2,
+.print-doc h3 {
+  font-family: 'Rubik', 'Heebo Variable', sans-serif;
+  margin: 0;
+  line-height: 1.25;
+}
+
+/* ---------- דף מארגן ---------- */
+.print-doc .cover {
+  font-size: 10pt;
+  line-height: 1.45;
+}
+.print-doc .cover-intro {
+  margin-bottom: 1mm;
+}
+.print-doc .cover-title {
+  font-size: 20pt;
+  font-weight: 700;
+  margin-bottom: 1.5mm;
+}
+.print-doc .cover-subtitle {
+  font-size: 12pt;
+  line-height: 1.4;
+  color: var(--ink-soft);
+  margin: 0 0 3mm;
+}
+.print-doc .cover-meta {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2.5mm;
+  margin: 0 0 3mm;
+}
+.print-doc .cover-meta div {
+  border: 0.3mm solid var(--line);
+  border-radius: 2.5mm;
+  padding: 1.5mm 3mm;
+  line-height: 1.35;
+}
+.print-doc .cover-meta dt {
+  font-size: 8pt;
+  color: var(--ink-faint);
+}
+.print-doc .cover-meta dd {
+  margin: 0;
+  font-weight: 700;
+  font-size: 10.5pt;
+}
+.print-doc .cover-description {
+  margin: 0;
+}
+.print-doc .cover-heading {
+  font-size: 12.5pt;
+  font-weight: 700;
+  margin-top: 3mm;
+  margin-bottom: 1.2mm;
+  padding-bottom: 1mm;
+  border-bottom: 0.4mm solid var(--ink);
+  display: inline-block;
+}
+.print-doc .cover-paragraph {
+  margin: 0 0 2mm;
+}
+.print-doc .cover-list {
+  margin: 0 0 1mm;
+  padding-inline-start: 6mm;
+}
+.print-doc .cover-list li {
+  margin-bottom: 0.9mm;
+  padding-inline-start: 1mm;
+}
+.print-doc .cover-list.ordered li::marker {
+  font-weight: 700;
+}
+.print-doc .cover-contents table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 10pt;
+}
+.print-doc .cover-contents td {
+  border-bottom: 0.25mm dotted var(--line);
+  padding: 0.6mm 0;
+}
+.print-doc .cover-contents td.pages {
+  text-align: left;
+  color: var(--ink-soft);
+  white-space: nowrap;
+}
+
+/* ---------- כותרת דף ---------- */
+.print-doc .sheet-title {
+  flex: none;
+  margin-bottom: 3mm;
+}
+.print-doc .sheet-title h2 {
+  font-size: 14pt;
+}
+.print-doc .sheet-title p {
+  margin: 0.5mm 0 0;
+  font-size: 9pt;
+  color: var(--ink-soft);
+  display: flex;
+  align-items: center;
+  gap: 1.5mm;
+}
+.print-doc .scissors {
+  flex: none;
+}
+
+/* ---------- כרטיסים ---------- */
+.print-doc .cards-page {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+.print-doc .cards-grid {
+  flex: 1 1 auto;
+  display: grid;
+  min-height: 0;
+  border-top: 0.3mm dashed var(--line);
+  border-right: 0.3mm dashed var(--line);
+}
+.print-doc .print-card {
+  border-left: 0.3mm dashed var(--line);
+  border-bottom: 0.3mm dashed var(--line);
+  padding: 3.5mm;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  overflow: hidden;
+  min-height: 0;
+  position: relative;
+}
+.print-doc .print-card.empty {
+  background: none;
+}
+.print-doc .card-tag {
+  position: absolute;
+  top: 2.5mm;
+  right: 3mm;
+  left: 3mm;
+  font-size: 7.5pt;
+  font-weight: 700;
+  color: var(--ink-soft);
+  text-align: right;
+  display: flex;
+  gap: 1.5mm;
+  align-items: center;
+}
+.print-doc .card-number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 4.5mm;
+  height: 4.5mm;
+  border: 0.3mm solid var(--ink-soft);
+  border-radius: 50%;
+  font-size: 7pt;
+}
+.print-doc .card-title {
+  font-family: 'Rubik', 'Heebo Variable', sans-serif;
+  font-weight: 700;
+  font-size: 12pt;
+  margin: 3mm 0 1.5mm;
+}
+.print-doc .card-text {
+  white-space: pre-line;
+}
+.print-doc .size-sm .card-text {
+  font-size: 9.5pt;
+  line-height: 1.45;
+}
+.print-doc .size-md .card-text {
+  font-size: 11pt;
+  line-height: 1.45;
+  font-weight: 500;
+}
+.print-doc .size-lg .card-text {
+  font-size: 13pt;
+  line-height: 1.5;
+  font-weight: 600;
+}
+.print-doc .size-xl .card-text {
+  font-size: 17pt;
+  font-weight: 700;
+}
+.print-doc .card-answer {
+  position: absolute;
+  bottom: 2.5mm;
+  left: 3mm;
+  right: 3mm;
+  font-size: 8pt;
+  color: var(--ink-soft);
+  transform: rotate(180deg);
+  border-bottom: 0.25mm dotted var(--line);
+  padding-bottom: 0.8mm;
+}
+.print-doc .card-blank {
+  width: 85%;
+  display: flex;
+  flex-direction: column;
+  gap: 8mm;
+  margin-top: 6mm;
+}
+.print-doc .card-blank span {
+  border-bottom: 0.3mm solid var(--line);
+}
+
+/* ---------- בינגו ---------- */
+.print-doc .bingo-page {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+.print-doc .bingo-boards {
+  flex: 1;
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  min-height: 0;
+}
+.print-doc .bingo-board {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 4mm 6mm;
+  min-height: 0;
+}
+.print-doc .bingo-board + .bingo-board {
+  border-top: 0.3mm dashed var(--line);
+}
+.print-doc .bingo-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 2.5mm;
+  font-size: 10pt;
+}
+.print-doc .bingo-head strong {
+  font-family: 'Rubik', 'Heebo Variable', sans-serif;
+  font-size: 15pt;
+}
+.print-doc .bingo-name {
+  color: var(--ink-soft);
+}
+.print-doc .bingo-grid {
+  display: grid;
+  border: 0.5mm solid var(--ink);
+  border-radius: 2mm;
+  overflow: hidden;
+}
+.print-doc .bingo-cell {
+  height: 23mm;
+  border-left: 0.3mm solid var(--ink-soft);
+  border-bottom: 0.3mm solid var(--ink-soft);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 1.5mm;
+  font-size: 12.5pt;
+  font-weight: 600;
+  line-height: 1.25;
+}
+.print-doc .bingo-grid.with-names .bingo-cell {
+  font-size: 9pt;
+  font-weight: 500;
+  justify-content: space-between;
+  padding: 2mm 2mm 2.5mm;
+}
+.print-doc .bingo-line {
+  display: block;
+  width: 85%;
+  border-bottom: 0.3mm solid var(--line);
+  height: 4mm;
+}
+.print-doc .cols-4 .bingo-cell:nth-child(4n + 4),
+.print-doc .cols-5 .bingo-cell:nth-child(5n + 5) {
+  border-left: none;
+}
+.print-doc .cols-4 .bingo-cell:nth-last-child(-n + 4),
+.print-doc .cols-5 .bingo-cell:nth-last-child(-n + 5) {
+  border-bottom: none;
+}
+.print-doc .cols-5 .bingo-cell {
+  height: 18mm;
+  font-size: 10.5pt;
+}
+
+/* ---------- חידון למנחה ---------- */
+.print-doc .quiz-round {
+  font-size: 12.5pt;
+  margin: 3mm 0 2mm;
+  padding: 1.2mm 3mm;
+  background: var(--fill);
+  border-radius: 1.5mm;
+}
+.print-doc .quiz-item {
+  margin-bottom: 2.2mm;
+  padding-bottom: 1.6mm;
+  border-bottom: 0.2mm dotted #bbb;
+}
+.print-doc .quiz-q {
+  font-weight: 600;
+}
+.print-doc .quiz-n {
+  font-weight: 700;
+}
+.print-doc .quiz-a {
+  font-size: 10pt;
+  color: var(--ink-soft);
+  padding-inline-start: 5mm;
+}
+.print-doc .quiz-item.tie {
+  margin-top: 5mm;
+  border: 0.4mm solid var(--ink);
+  border-radius: 2mm;
+  padding: 2.5mm 3mm;
+}
+
+/* ---------- שדות כותרת ---------- */
+.print-doc .header-fields {
+  display: flex;
+  gap: 6mm;
+  margin-bottom: 3mm;
+  flex: none;
+}
+.print-doc .field {
+  flex: 1;
+  display: flex;
+  align-items: flex-end;
+  gap: 2mm;
+  font-weight: 600;
+  white-space: nowrap;
+}
+.print-doc .line {
+  flex: 1;
+  border-bottom: 0.3mm solid var(--ink-soft);
+  min-width: 10mm;
+  height: 5mm;
+}
+
+/* ---------- דף תשובות ---------- */
+.print-doc .answer-rounds {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4mm;
+}
+.print-doc .answer-round {
+  border: 0.3mm solid var(--line);
+  border-radius: 2.5mm;
+  padding: 3mm 4mm;
+}
+.print-doc .answer-round h3 {
+  font-size: 11pt;
+  margin-bottom: 1.5mm;
+}
+.print-doc .answer-round ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.print-doc .answer-round li {
+  display: flex;
+  align-items: flex-end;
+  gap: 2mm;
+  height: 8.6mm;
+}
+.print-doc .answer-round .num {
+  width: 6mm;
+  font-weight: 700;
+}
+.print-doc .round-score {
+  margin-top: 2.5mm;
+  font-size: 9.5pt;
+  text-align: left;
+}
+
+/* ---------- טפסים ---------- */
+.print-doc .form-page {
+  height: 100%;
+  display: grid;
+}
+.print-doc .form-page.per-2 {
+  grid-template-rows: 1fr 1fr;
+}
+.print-doc .form-page.per-4 {
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+}
+.print-doc .form-copy {
+  padding: 3mm 3mm 2mm;
+  min-height: 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+.print-doc .form-page.per-2 .form-copy + .form-copy {
+  border-top: 0.3mm dashed var(--line);
+  padding-top: 4mm;
+}
+.print-doc .form-page.per-4 .form-copy {
+  border-bottom: 0.3mm dashed var(--line);
+}
+.print-doc .form-page.per-4 .form-copy:nth-child(odd) {
+  border-left: 0.3mm dashed var(--line);
+}
+.print-doc .form-page.per-4 .form-copy:nth-child(n + 3) {
+  border-bottom: none;
+  padding-top: 4mm;
+}
+.print-doc .form-head {
+  flex: none;
+  margin-bottom: 2.5mm;
+}
+.print-doc .form-head h2 {
+  font-size: 13pt;
+}
+.print-doc .form-page.per-4 .form-head h2 {
+  font-size: 11.5pt;
+}
+.print-doc .form-head p {
+  margin: 0;
+  font-size: 9pt;
+  color: var(--ink-soft);
+}
+.print-doc .form-grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  column-gap: 6mm;
+}
+.print-doc .form-grid li {
+  display: flex;
+  align-items: flex-end;
+  gap: 2mm;
+  height: 10.5mm;
+}
+.print-doc .form-grid .q {
+  font-weight: 500;
+  line-height: 1.25;
+}
+.print-doc .form-grid .num {
+  font-weight: 700;
+}
+.print-doc .form-page.per-2 .form-grid li {
+  height: 9mm;
+  font-size: 9.5pt;
+}
+.print-doc .form-page.per-4 .form-grid li {
+  height: 10.5mm;
+  font-size: 9pt;
+}
+.print-doc .form-grid.stacked li {
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-end;
+  gap: 0;
+  height: 12mm;
+}
+.print-doc .form-grid.stacked .line {
+  flex: none;
+  height: 5.5mm;
+}
+.print-doc .form-page.per-2 .header-fields,
+.print-doc .form-page.per-4 .header-fields {
+  font-size: 9.5pt;
+  margin-bottom: 2mm;
+}
+
+/* ---------- לוח ניקוד וטבלה ---------- */
+.print-doc .score-table,
+.print-doc .info-table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+.print-doc .score-table th,
+.print-doc .score-table td,
+.print-doc .info-table th,
+.print-doc .info-table td {
+  border: 0.3mm solid var(--ink-soft);
+  padding: 1mm 2mm;
+  text-align: center;
+}
+.print-doc .score-table td {
+  height: var(--row-h, 12mm);
+}
+.print-doc .score-table th {
+  height: 10mm;
+  background: var(--fill);
+  font-size: 9.5pt;
+}
+.print-doc .score-table .label-col {
+  width: 34%;
+  text-align: right;
+  font-size: 9.5pt;
+  font-weight: 600;
+}
+.print-doc .score-table tr.total td {
+  border-top: 0.6mm solid var(--ink);
+  font-weight: 700;
+}
+.print-doc .info-table th {
+  background: var(--fill);
+  height: 10mm;
+}
+.print-doc .info-table td {
+  height: 15mm;
+  text-align: right;
+}
+.print-doc .info-table td:first-child {
+  width: 18%;
+  font-weight: 700;
+  text-align: center;
+}
+
+/* ---------- תעודות ---------- */
+.print-doc .certificate-page {
+  height: 100%;
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+}
+.print-doc .certificate {
+  padding: 5mm 4mm;
+  min-height: 0;
+  display: flex;
+}
+.print-doc .certificate + .certificate {
+  border-top: 0.3mm dashed var(--line);
+}
+.print-doc .certificate-inner {
+  flex: 1;
+  border: 1.2mm double var(--ink);
+  border-radius: 3mm;
+  padding: 7mm 12mm;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 4mm;
+}
+.print-doc .certificate-stars {
+  display: flex;
+  gap: 3mm;
+  color: var(--ink-soft);
+}
+.print-doc .certificate h2 {
+  font-size: 22pt;
+}
+.print-doc .certificate p {
+  margin: 0;
+  font-size: 13pt;
+  line-height: 1.9;
+  max-width: 140mm;
+}
+.print-doc .certificate-sign {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 140mm;
+  margin-top: 4mm;
+  font-size: 10.5pt;
+}
+.print-doc .certificate-foot {
+  font-size: 8pt;
+  color: var(--ink-faint);
+}
+
+/* ---------- הדפסה ---------- */
+@page {
+  size: A4;
+  margin: 0;
+}
+
+@media print {
+  html,
+  body {
+    margin: 0;
+    padding: 0;
+    background: #fff;
+  }
+  .no-print {
+    display: none !important;
+  }
+  .print-doc {
+    zoom: 1 !important;
+  }
+  .print-doc .sheet {
+    box-shadow: none !important;
+    margin: 0 !important;
+  }
+  .print-page {
+    background: #fff !important;
+    padding: 0 !important;
+  }
+}

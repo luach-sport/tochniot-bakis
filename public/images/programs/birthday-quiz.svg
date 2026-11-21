@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 400" width="640" height="400" role="img">
+<defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fdeef3"/><stop offset="1" stop-color="#ffffff"/></linearGradient></defs>
+<rect width="640" height="400" fill="url(#bg)"/>
+<circle cx="560" cy="70" r="90" fill="#fbd5e2" opacity=".55"/>
+<circle cx="70" cy="350" r="110" fill="#fbd5e2" opacity=".45"/>
+<circle cx="120" cy="70" r="8" fill="#f28c28" opacity=".7"/><circle cx="590" cy="330" r="10" fill="#1f7ac4" opacity=".35"/>
+<circle cx="520" cy="210" r="5" fill="#f28c28" opacity=".6"/><circle cx="90" cy="200" r="6" fill="#1f7ac4" opacity=".3"/>
+<rect x="210" y="210" width="220" height="110" rx="16" fill="#ffd3a6" stroke="#17242f" stroke-width="5"/>
+<path d="M210 245 q27 22 55 0 t55 0 t55 0 t55 0" fill="none" stroke="#ffffff" stroke-width="10" stroke-linecap="round"/>
+<rect x="240" y="150" width="160" height="62" rx="14" fill="#ffffff" stroke="#17242f" stroke-width="5"/>
+<path d="M240 178 q20 16 40 0 t40 0 t40 0 t40 0" fill="none" stroke="#8cc5f0" stroke-width="8" stroke-linecap="round"/>
+<rect x="190" y="318" width="260" height="14" rx="7" fill="#17242f"/><rect x="274" y="108" width="12" height="42" rx="4" fill="#1f7ac4" stroke="#17242f" stroke-width="3"/><path d="M280 82 q12 14 0 24 q-12 -10 0 -24z" fill="#f28c28"/><rect x="314" y="108" width="12" height="42" rx="4" fill="#f28c28" stroke="#17242f" stroke-width="3"/><path d="M320 82 q12 14 0 24 q-12 -10 0 -24z" fill="#f28c28"/><rect x="354" y="108" width="12" height="42" rx="4" fill="#1f7ac4" stroke="#17242f" stroke-width="3"/><path d="M360 82 q12 14 0 24 q-12 -10 0 -24z" fill="#f28c28"/><g transform="translate(480 70)"><ellipse cx="45" cy="55" rx="42" ry="52" fill="#1f7ac4" stroke="#17242f" stroke-width="5"/><text x="45" y="80" font-family="Arial, Helvetica, sans-serif" font-weight="700" font-size="64" fill="#ffffff" text-anchor="middle">?</text><path d="M45 108 q-10 30 6 60 q14 30 -4 60" fill="none" stroke="#17242f" stroke-width="3"/></g>
+</svg>
