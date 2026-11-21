@@ -38,6 +38,8 @@ const program: Program = {
   durationMinutes: { min: 15, max: 30 },
   ages: { min: 12 },
   difficulty: 'easy',
+  vibes: ['social', 'competitive'],
+  shabbatFriendly: false,
   equipment: [
     'הקובץ מודפס. בכל דף שני לוחות, ובסך הכול 12 לוחות שונים. לאירוע גדול מדפיסים כמה עותקים.',
     'עט לכל משתתף',

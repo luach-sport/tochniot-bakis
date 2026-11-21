@@ -7,6 +7,7 @@ import '@fontsource/rubik/500.css';
 import '@fontsource/rubik/700.css';
 import './styles/site.css';
 import './print/print.css';
+import './assistant/assistant.css';
 
 const basename = import.meta.env.BASE_URL.replace(/\/$/, '');
 const root = document.getElementById('root')!;

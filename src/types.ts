@@ -12,6 +12,9 @@ export type CategoryId =
 
 export type Difficulty = 'easy' | 'medium' | 'hard';
 
+/** האווירה של התוכנית, משמשת את העוזר לבחירת תוכנית */
+export type Vibe = 'funny' | 'social' | 'competitive' | 'calm';
+
 export interface Category {
   id: CategoryId;
   name: string;
@@ -127,6 +130,10 @@ export interface Program {
   durationMinutes: { min: number; max: number };
   ages: { min: number; max?: number };
   difficulty: Difficulty;
+  /** אווירה: funny = צחוק, social = היכרות ושיחה, competitive = תחרות, calm = רגוע ומעמיק */
+  vibes: Vibe[];
+  /** האם אפשר לשחק בשבת ובחג בלי לכתוב (אחרי הכנה מראש) */
+  shabbatFriendly: boolean;
   equipment: string[];
   preparation: string[];
   instructions: string[];

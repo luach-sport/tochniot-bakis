@@ -76,7 +76,7 @@ export function CoverPage({
                     {contents.map((c) => (
                       <tr key={c.title}>
                         <td>{c.title}</td>
-                        <td className="pages">{c.from === c.to ? `עמוד ${c.from}` : `עמודים ${c.from}–${c.to}`}</td>
+                        <td className="pages">{c.from === c.to ? `עמוד ${c.from}` : `עמודים ${c.from}-${c.to}`}</td>
                       </tr>
                     ))}
                   </tbody>

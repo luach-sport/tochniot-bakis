@@ -6,6 +6,7 @@ import { programs } from '../data/programs';
 import { CategoryCard } from '../components/CategoryCard';
 import { ProgramGrid } from '../components/ProgramCard';
 import { absoluteUrl, useSeo } from '../lib/seo';
+import { OPEN_ASSISTANT_EVENT } from '../assistant/Assistant';
 
 const popular = [...programs].sort((a, b) => b.popularity - a.popularity).slice(0, 6);
 const recent = programs
@@ -60,9 +61,14 @@ export function HomePage() {
                 בואו למצוא פעילות
                 <ArrowLeft size={20} aria-hidden="true" />
               </Link>
-              <Link to="/about/" className="btn btn-ghost btn-lg">
-                איך זה עובד?
-              </Link>
+              <button
+                type="button"
+                className="btn btn-ghost btn-lg"
+                onClick={() => window.dispatchEvent(new Event(OPEN_ASSISTANT_EVENT))}
+              >
+                <Sparkles size={20} aria-hidden="true" />
+                עזרו לי לבחור
+              </button>
             </div>
           </div>
           <div className="hero-art" aria-hidden="true">

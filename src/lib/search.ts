@@ -81,8 +81,8 @@ export const emptyFilters: Filters = { q: '', category: '', participants: '', du
 
 export const participantsOptions: { value: ParticipantsFilter; label: string; range: [number, number] }[] = [
   { value: '1-4', label: 'עד 4 משתתפים', range: [1, 4] },
-  { value: '5-10', label: '5–10 משתתפים', range: [5, 10] },
-  { value: '11-20', label: '11–20 משתתפים', range: [11, 20] },
+  { value: '5-10', label: '5-10 משתתפים', range: [5, 10] },
+  { value: '11-20', label: '11-20 משתתפים', range: [11, 20] },
   { value: '21+', label: 'יותר מ-20', range: [21, 10000] },
 ];
 

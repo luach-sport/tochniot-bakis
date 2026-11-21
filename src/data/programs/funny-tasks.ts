@@ -58,6 +58,8 @@ const program: Program = {
   durationMinutes: { min: 20, max: 40 },
   ages: { min: 6 },
   difficulty: 'easy',
+  vibes: ['funny', 'competitive'],
+  shabbatFriendly: false,
   equipment: ['הקובץ מודפס', 'מספריים', 'טלפון או שעון לספירת שניות', 'עט ללוח הניקוד'],
   preparation: [
     'הדפיסו את הקובץ וגזרו את הכרטיסים.',

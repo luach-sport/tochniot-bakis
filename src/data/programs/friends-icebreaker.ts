@@ -58,6 +58,8 @@ const program: Program = {
   durationMinutes: { min: 20, max: 45 },
   ages: { min: 12 },
   difficulty: 'easy',
+  vibes: ['social', 'calm', 'funny'],
+  shabbatFriendly: true,
   equipment: ['הקובץ מודפס', 'מספריים', 'שולחן או מקום שבו יושבים במעגל'],
   preparation: [
     'הדפיסו את הקובץ וגזרו את הקלפים לאורך הקווים המקווקווים.',

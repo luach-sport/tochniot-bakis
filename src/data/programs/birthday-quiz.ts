@@ -34,6 +34,8 @@ const program: Program = {
   durationMinutes: { min: 30, max: 45 },
   ages: { min: 8 },
   difficulty: 'medium',
+  vibes: ['competitive', 'social', 'funny'],
+  shabbatFriendly: false,
   equipment: [
     'הקובץ מודפס',
     'עותקים נוספים של דף האורחים, לפי מספר האורחים (בכל דף יש שני טפסים)',

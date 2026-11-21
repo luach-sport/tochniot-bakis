@@ -163,7 +163,7 @@ function ProgramView({ program }: { program: Program }) {
               {plan.contents.map((c) => (
                 <li key={c.title}>
                   <span>{c.title}</span>
-                  <span className="muted">{c.from === c.to ? `עמוד ${c.from}` : `עמודים ${c.from}–${c.to}`}</span>
+                  <span className="muted">{c.from === c.to ? `עמוד ${c.from}` : `עמודים ${c.from}-${c.to}`}</span>
                 </li>
               ))}
             </ul>

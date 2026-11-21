@@ -10,7 +10,7 @@ export function participantsLabel(p: Program): string {
   const { min, max } = p.participants;
   if (min === max) return `${min} משתתפים`;
   if (min === 1) return `עד ${max} משתתפים`;
-  return `${min}–${max} משתתפים`;
+  return `${min}-${max} משתתפים`;
 }
 
 export function durationLabel(p: Program): string {
@@ -19,12 +19,12 @@ export function durationLabel(p: Program): string {
   if (min === max) return `${fmt(min)} דקות`;
   if (max >= 60 && max % 60 === 0 && max > 60) return `${min} דקות עד ${fmt(max)}`;
   if (max === 60) return `${min} דקות עד שעה`;
-  return `${min}–${max} דקות`;
+  return `${min}-${max} דקות`;
 }
 
 export function agesLabel(p: Program): string {
   const { min, max } = p.ages;
-  if (max) return `גילאי ${min}–${max}`;
+  if (max) return `גילאי ${min}-${max}`;
   if (min >= 18) return 'מבוגרים';
   return `מגיל ${min}`;
 }

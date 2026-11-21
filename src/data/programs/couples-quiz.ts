@@ -29,6 +29,8 @@ const program: Program = {
   durationMinutes: { min: 30, max: 45 },
   ages: { min: 18 },
   difficulty: 'medium',
+  vibes: ['funny', 'social', 'competitive'],
+  shabbatFriendly: false,
   equipment: [
     'הקובץ מודפס',
     'דף תשובות לכל זוג (בכל דף יש טופס לשני בני הזוג). בקובץ יש דפים ל-3 זוגות, ואפשר להדפיס עוד.',

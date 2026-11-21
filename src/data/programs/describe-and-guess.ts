@@ -20,6 +20,8 @@ const program: Program = {
   durationMinutes: { min: 30, max: 45 },
   ages: { min: 8 },
   difficulty: 'easy',
+  vibes: ['funny', 'competitive'],
+  shabbatFriendly: true,
   equipment: ['הקובץ מודפס', 'מספריים', 'קערה או כובע לקלפים', 'טלפון עם שעון עצר', 'דף ועט לניקוד'],
   preparation: [
     'הדפיסו את הקובץ וגזרו את 48 הקלפים.',

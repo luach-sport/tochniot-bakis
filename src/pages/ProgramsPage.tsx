@@ -54,7 +54,7 @@ export function ProgramsPage() {
         <div className="empty-state">
           <SearchX size={44} aria-hidden="true" />
           <h2>לא מצאנו פעילות שמתאימה בדיוק</h2>
-          <p>נסו מילה אחרת, או הסירו חלק מהסינונים.</p>
+          <p>נסו מילה אחרת, הסירו חלק מהסינונים, או ספרו לעוזר מה אתם מחפשים.</p>
           <button type="button" className="btn btn-primary" onClick={() => update(emptyFilters)}>
             הצגת כל הפעילויות
           </button>

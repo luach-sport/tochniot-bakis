@@ -56,6 +56,8 @@ const program: Program = {
   durationMinutes: { min: 15, max: 60 },
   ages: { min: 6 },
   difficulty: 'easy',
+  vibes: ['calm', 'social'],
+  shabbatFriendly: true,
   equipment: ['הקובץ מודפס', 'מספריים', 'קופסה, שקית או קערה לקלפים'],
   preparation: [
     'הדפיסו וגזרו את הקלפים לפני שבת.',

@@ -10,6 +10,7 @@ import { ProgramPage } from './pages/ProgramPage';
 import { PrintPage } from './pages/PrintPage';
 import { AboutPage } from './pages/AboutPage';
 import { NotFoundPage } from './pages/NotFoundPage';
+import { Assistant } from './assistant/Assistant';
 
 function ScrollToTop() {
   const { pathname, hash } = useLocation();
@@ -30,6 +31,7 @@ function Layout() {
         <Outlet />
       </main>
       <Footer />
+      <Assistant />
     </>
   );
 }

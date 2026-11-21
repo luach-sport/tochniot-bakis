@@ -11,6 +11,8 @@ const program: Program = {
   durationMinutes: { min: 30, max: 45 },
   ages: { min: 10 },
   difficulty: 'easy',
+  vibes: ['social', 'funny'],
+  shabbatFriendly: true,
   equipment: [
     'הקובץ מודפס',
     'כרטיס עליי אחד לכל משתתף (4 בכל דף, 8 בקובץ, ואפשר להדפיס עוד)',

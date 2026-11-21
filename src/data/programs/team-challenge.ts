@@ -11,6 +11,8 @@ const program: Program = {
   durationMinutes: { min: 60, max: 90 },
   ages: { min: 16 },
   difficulty: 'hard',
+  vibes: ['competitive', 'social', 'funny'],
+  shabbatFriendly: false,
   equipment: [
     'הקובץ מודפס',
     'מספריים',
